@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/971a280dd6.js"
+      crossorigin="anonymous"
+    ></script>
     <title>LF-STYLE</title>
   </head>
-  <header>
-    <h1 class="icon">LF-Style</h1>
+  <header class="header">
+    <h1 class="logo">LF-Style</h1>
     <nav class="navigation">
       <ul>
-        <a href="index.html"><li>Acceuil</li></a>
-        <a href=""><li>Nous contacter</li></a>
-        <a href=""><li>Categorie</li></a>
-        <a href=""><li>A propos de nous</li></a>
-        <a href=""><li>Promotions</li></a>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#contact">Nous contacter</a></li>
+        <li><a href="#categorie">Catégorie</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#promotions">Promotions</a></li>
       </ul>
     </nav>
   </header>
+
   <body>
     <section class="hero">
       <div class="hero-content">
@@ -58,5 +63,74 @@
         </button>
       </div>
     </section>
+    <!-- Ajoute ceci juste après la section promotions -->
+    <section class="about-us">
+      <div class="container">
+        <h2>À propos de nous</h2>
+        <p>
+          Chez <strong>LF-Style</strong>, nous croyons que chaque pièce raconte
+          une histoire. Des matières sélectionnées avec soin, un design
+          intemporel et une fabrication responsable sont au cœur de notre
+          démarche. Découvrez notre univers et rejoignez-nous dans cette
+          aventure mode, où style rime avec éthique.
+        </p>
+      </div>
+    </section>
+    <!-- Section Contact -->
+    <section class="contact-us">
+      <div class="container">
+        <h2>Nous contacter</h2>
+        <form class="contact-form" action="#" method="post">
+          <label for="email">Votre adresse email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="exemple@domaine.com"
+            required
+          />
+
+          <label for="message">Votre message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Écrivez votre message ici…"
+            required
+          ></textarea>
+
+          <button type="submit" class="btn-submit">Envoyer</button>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-left">
+        <!-- Réseaux sociaux -->
+        <a
+          href="https://www.instagram.com/laurafaudet/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100009095319764"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </div>
+
+      <div class="footer-center">© 2025 LF Style. Tous droits réservés.</div>
+
+      <div class="footer-right">
+        <!-- Paiements sécurisés -->
+        <p>Paiements sécurisés via</p>
+        <i class="fa-brands fa-stripe stripe-icon" aria-label="Stripe"></i>
+      </div>
+    </footer>
   </body>
 </html>
