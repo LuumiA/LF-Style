@@ -33,18 +33,24 @@ svg {
 }
 
 .header {
-  display: flex; /* Flexbox pour aligner logo + nav */
-  justify-content: space-between; /* logo à gauche, nav à droite */
-  align-items: center; /* centre verticalement */
-  padding: 0.5rem 1rem; /* un peu d’air autour */
-  background: #fff; /* ou ta couleur de fond */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  position: relative;
+  min-height: 64px; /* Hauteur fixe pour garder le header haut même en mobile */
 }
 
 /* Logo */
 .header .logo {
-  margin: 0;
+  margin: 0 auto;
   font-size: 1.5rem; /* taille réduite */
   font-weight: 600;
+  position: static;
+  left: unset;
+  transform: none;
+  z-index: 10;
 }
 
 /* Navigation */
@@ -55,6 +61,7 @@ svg {
   margin: 0;
   padding: 0;
   font-size: 0.9rem; /* police plus petite */
+  position: relative;
 }
 
 .navigation a {
@@ -728,5 +735,54 @@ svg {
   }
   .page-promos-title {
     font-size: 1.3rem;
+  }
+}
+
+/* Responsive : logo centré, menu burger à gauche, menu déroulant à gauche sous le menu toggle */
+@media (max-width: 768px) {
+  .header {
+    justify-content: center;
+    min-height: 64px;
+  }
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+  }
+  .header .logo {
+    position: static;
+    left: unset;
+    top: unset;
+    transform: none;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+  .navigation ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #fff;
+    width: 70vw;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 8px 0;
+    padding: 1rem 0.5rem;
+    z-index: 9;
+    margin: 0;
+  }
+  .navigation ul.open {
+    display: flex;
+  }
+  .navigation ul li {
+    margin: 0.5rem 0;
+    text-align: left;
   }
 }
