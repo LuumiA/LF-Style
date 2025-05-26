@@ -131,6 +131,8 @@ svg {
   cursor: pointer;
   padding: 0 1rem;
   color: #333;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .promo-arrow:disabled {
   opacity: 0.3;
