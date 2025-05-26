@@ -1,0 +1,254 @@
+/* base.css */
+
+/* 1. Box-sizing global pour un rendu prévisible */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Corps de page plein écran sans marges */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 3. Hauteur minimum pour le <body> (au cas où) */
+body {
+  min-height: 100vh;
+}
+
+/* 4. Images et vidéos responsives */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 100px;
+}
+.navigation a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero {
+  background: url(assets/img/Img-acceuil.jpg) center/cover no-repeat;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #d2a679;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #b5896e;
+}
+
+.promotions-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.promotion {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 2rem 1rem;
+}
+
+.promo-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 1rem;
+  color: #333;
+}
+.promo-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.promo-carousel {
+  overflow: hidden;
+  flex: 1;
+}
+
+.promo-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.promo-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  flex: 0 0 calc((100% - 2rem) / 3);
+  text-align: center;
+  padding: 1rem;
+}
+
+.promo-card img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.promo-card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.promo-card .price {
+  font-weight: bold;
+  color: #d2a679;
+} /* Container principal en colonne */
+.promotions {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centre horizontalement le titre et la promo-wrapper */
+  gap: 1.5rem; /* espace entre le titre et la carousel */
+}
+
+/* Style du titre */
+.promo-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Wrapper qui aligne flèches et cartes */
+.promo-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Flèches */
+.promo-arrow {
+  background: none;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.promo-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Viewport du carousel */
+.promo-carousel {
+  overflow: hidden;
+  flex: 1; /* occupe tout l’espace restant */
+  margin: 0 1rem; /* espace entre les flèches */
+}
+
+/* Track (flex row pour les cartes) */
+.promo-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Cartes */
+/* 1) On veille à ce que .promo-card soit un conteneur bloqué */
+.promo-card {
+  display: block; /* pour que l’ancre occupe une « carte » complète */
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  flex: 0 0 calc((100% - 2rem) / 3);
+  text-align: center;
+  padding: 1rem;
+  text-decoration: none; /* supprime le souligné */
+  color: inherit; /* récupère la couleur du parent */
+
+  /* 2) On prépare l’animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* 3) Effet au survol */
+.promo-card:hover {
+  transform: scale(1.05); /* agrandit la carte */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* passe devant les autres */
+}
+
+/* 4) Styles de l’image et du contenu (inchangés) */
+.promo-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.promo-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.promo-card .price {
+  color: #d2a679;
+  font-weight: bold;
+}
