@@ -32,25 +32,39 @@ svg {
   height: auto;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+.header {
+  display: flex; /* Flexbox pour aligner logo + nav */
+  justify-content: space-between; /* logo à gauche, nav à droite */
+  align-items: center; /* centre verticalement */
+  padding: 0.5rem 1rem; /* un peu d’air autour */
+  background: #fff; /* ou ta couleur de fond */
 }
 
+/* Logo */
+.header .logo {
+  margin: 0;
+  font-size: 1.5rem; /* taille réduite */
+  font-weight: 600;
+}
+
+/* Navigation */
 .navigation ul {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  display: flex; /* liens sur une seule ligne */
+  gap: 1.5rem; /* écart entre chaque lien */
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-right: 100px;
+  font-size: 0.9rem; /* police plus petite */
 }
+
 .navigation a {
   text-decoration: none;
-  color: inherit;
+  color: #333; /* couleur sombre, discrète */
+  transition: color 0.2s;
+}
+
+.navigation a:hover {
+  color: #d2a679; /* accent au survol */
 }
 
 .hero {
@@ -230,7 +244,7 @@ header {
 
 /* 3) Effet au survol */
 .promo-card:hover {
-  transform: scale(1.05); /* agrandit la carte */
+  transform: scale(1.02); /* agrandit la carte */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   z-index: 1; /* passe devant les autres */
 }
@@ -251,4 +265,272 @@ header {
 .promo-card .price {
   color: #d2a679;
   font-weight: bold;
+}
+
+/* Styles pour la section “À propos de nous” */
+.about-us {
+  background-color: #f9f5f0; /* beige très clair pour contraster */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.about-us .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-us h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.about-us p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Responsive : sur mobile, on réduit un peu le padding et la taille de la typo */
+@media (max-width: 600px) {
+  .about-us {
+    padding: 2rem 1rem;
+  }
+  .about-us h2 {
+    font-size: 1.5rem;
+  }
+  .about-us p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Styles pour la section “Nous contacter” */
+.contact-us {
+  background-color: #fff; /* fond blanc pour aérer */
+  padding: 4rem 1rem;
+}
+
+.contact-us .container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-us h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #d2a679;
+  box-shadow: 0 0 0 3px rgba(210, 166, 121, 0.2);
+}
+
+.btn-submit {
+  align-self: flex-end;
+  padding: 0.75rem 1.5rem;
+  background: #d2a679;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: #b5896e;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-us {
+    padding: 2rem 1rem;
+  }
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f2f2f2;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Zone réseaux sociaux */
+.footer-left {
+  display: flex;
+  gap: 1rem;
+}
+.footer-left a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer-left i {
+  font-size: 1.5rem;
+}
+
+/* Zone Stripe */
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.stripe-logo {
+  height: 24px;
+  display: block;
+}
+
+/* Responsive small */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer-right {
+    justify-content: center;
+  }
+}
+
+/* === Responsive Mobile (≤600px) === */
+@media (max-width: 600px) {
+  /* HEADER */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* Donne à la nav toute la largeur dispo */
+  .navigation {
+    width: 100%;
+  }
+
+  /* Aligne les liens au début, garde-les en ligne */
+  .navigation ul {
+    justify-content: flex-start;
+    margin: 0.5rem 0 0;
+    gap: 1rem;
+  }
+
+  /* Rends le logo et les liens un peu plus petits */
+  .logo {
+    font-size: 1.5rem;
+  }
+  .navigation a {
+    font-size: 0.9rem;
+  }
+
+  /* HERO */
+  .hero {
+    height: 50vh;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* PROMOTIONS */
+  .promotions-text {
+    font-size: 1.2rem;
+  }
+  .promo-wrapper {
+    position: relative;
+  }
+
+  /* 2) Cache les flèches en dehors du carrousel (on repositionne ensuite) */
+  .promo-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #333;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    z-index: 2;
+  }
+
+  /* 3) Flèche “précédent” à gauche */
+  .promo-arrow.prev {
+    left: 0.5rem;
+  }
+
+  /* 4) Flèche “suivant” à droite */
+  .promo-arrow.next {
+    right: 0.5rem;
+  }
+
+  /* 5) On veut voir qu’une seule carte à la fois */
+  .promo-card {
+    flex: 0 0 100%;
+  }
+  .promo-track {
+    gap: 0; /* sans espace latéral, pour centrer parfaitement la carte */
+  }
+
+  /* À PROPOS DE NOUS */
+  .about-us {
+    padding: 2rem 1rem;
+  }
+  .about-us h2 {
+    font-size: 1.5rem;
+  }
+  .about-us p {
+    font-size: 0.95rem;
+  }
+
+  /* CONTACT */
+  .contact-us {
+    padding: 2rem 1rem;
+  }
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* FOOTER */
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer-left,
+  .footer-right {
+    justify-content: center;
+  }
 }
